@@ -1,18 +1,27 @@
 import { getApiBaseUrl } from "@/lib/api";
+import Link from "next/link";
 
 export default function HomePage() {
   const apiBaseUrl = getApiBaseUrl();
 
   return (
-    <main className="page">
-      <section className="hero">
-        <p className="eyebrow">DocPilot Day 1</p>
-        <h1>Minimal foundation for document AI.</h1>
+    <main className="shell">
+      <section className="panel hero">
+        <p className="eyebrow">DocPilot Day 2</p>
+        <h1>Upload, persist, and review documents.</h1>
         <p className="copy">
-          This scaffold keeps the first day focused: one frontend, one backend,
-          one database, and enough structure to grow into parsing and contract
-          analysis later.
+          The MVP now has a real document loop: upload a PDF, store the file on
+          disk, record metadata in the database, and browse the saved documents
+          from the frontend.
         </p>
+        <div className="actionRow">
+          <Link className="primaryButton" href="/upload">
+            Upload a PDF
+          </Link>
+          <Link className="secondaryButton" href="/documents">
+            Browse documents
+          </Link>
+        </div>
         <div className="card">
           <span>Backend API</span>
           <code>{apiBaseUrl}/api/v1/health</code>
@@ -21,4 +30,3 @@ export default function HomePage() {
     </main>
   );
 }
-
